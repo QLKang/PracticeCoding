@@ -9,6 +9,8 @@ The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4.
 Your algorithm should run in O(n2) complexity.
 
 Follow up: Could you improve it to O(n log n) time complexity?
+
+http://www.cnblogs.com/grandyang/p/4938187.html
  */
 public class LongestIncreasingSubsequence {
 
