@@ -12,8 +12,15 @@ public class Triangle {
 
 		ArrayList<Integer> preSum = new ArrayList<Integer>();
 		preSum.add(triangle.get(0).get(0));
+		
+		int min = 0;
+		if(triangle.size()==1){
+			min = triangle.get(0).get(0);
+		}
 
 		for (int i = 1; i < triangle.size(); i++) {
+			
+			int localMin = Integer.MAX_VALUE;
 
 			ArrayList<Integer> currSum = new ArrayList<Integer>();
 			List<Integer> currList = triangle.get(i);
@@ -29,24 +36,27 @@ public class Triangle {
 				} else {
 					currVal = currList.get(j) + Math.min(preSum.get(j), preSum.get(j - 1));
 				}
-
+				localMin = Math.min(currVal, localMin);
 				currSum.add(currVal);
 			}
 
+			min = localMin;
 			preSum = currSum;
-		}
-
-		int min = Integer.MAX_VALUE;
-		for (Integer ii : preSum) {
-			min = Math.min(min, ii);
 		}
 
 		return min;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	public static void main(String args[]){
+		Triangle sol = new Triangle();
+		List<Integer> list = new ArrayList<>();
+		list.add(-10);
+		List<List<Integer>> triangle = new ArrayList<List<Integer>>();
+		triangle.add(list);
+		int res = sol.minimumTotal(triangle);
+		System.out.println(res);
 	}
-
+	
+	
 }
